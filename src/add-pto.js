@@ -2,8 +2,7 @@ import querystring from 'querystring'
 
 exports.handler = async (event, context, callback) => {
   console.log(event)
-  const body = querystring.parse(event.body)
-  console.log(body)
+  const { user_id: userId, text } = querystring.parse(event.body)
 
   callback(null, {
     statusCode: 200,
@@ -12,7 +11,7 @@ exports.handler = async (event, context, callback) => {
     },
     body: JSON.stringify({
       response_type: 'ephemeral',
-      text: `Event added to PTO calendar: ${body}`
+      text: `Event added to PTO calendar: ${userId}: ${text}`
     })
   })
 }
