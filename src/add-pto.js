@@ -10,6 +10,9 @@ exports.handler = async (event, context, callback) => {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({})
+    body: JSON.stringify({
+      response_type: 'ephemeral',
+      text: `Event added to PTO calendar: ${body}`
+    })
   })
 }
